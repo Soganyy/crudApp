@@ -29,21 +29,23 @@ const Dashboard = ({ setIsAuthenticated }) => {
   const handleDelete = id => {
     Swal.fire({
       icon: 'warning',
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: 'Silmək istədiyinə əminsən?',
+      text: "Geri qaytara bilməyəcəksiniz!",
       showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, cancel!',
+      confirmButtonText: 'Bəli, Sil!',
+      confirmButtonColor:'red',
+      cancelButtonColor:'green',
+      cancelButtonText: 'Xeyr, Silmə!',
     }).then(result => {
       if (result.value) {
         const [employee] = employees.filter(employee => employee.id === id);
 
         Swal.fire({
           icon: 'success',
-          title: 'Deleted!',
-          text: `${employee.firstName} ${employee.lastName}'s data has been deleted.`,
+          title: 'Silindi!',
+          text: `${employee.firstName} ${employee.lastName}-da işçi  siyahıdan silindi!`,
           showConfirmButton: false,
-          timer: 1500,
+          timer: 2500,
         });
 
         const employeesCopy = employees.filter(employee => employee.id !== id);

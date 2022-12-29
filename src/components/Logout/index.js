@@ -5,10 +5,13 @@ const Logout = ({ setIsAuthenticated }) => {
   const handleLogout = () => {
     Swal.fire({
       icon: 'question',
-      title: 'Logging Out',
-      text: 'Are you sure you want to log out?',
+      title: 'Hesabdan  çıxış',
+      text: 'Hesabdan çıxmaq istədiyinə əminsən?',
       showCancelButton: true,
-      confirmButtonText: 'Yes',
+      confirmButtonText: 'Bəli çıx',
+      confirmButtonColor:'red',
+      cancelButtonText:"Ləğv et!",
+      cancelButtonColor:'green'
     }).then(result => {
       if (result.value) {
         Swal.fire({
@@ -32,7 +35,7 @@ const Logout = ({ setIsAuthenticated }) => {
       className="muted-button"
       onClick={handleLogout}
     >
-      Logout
+      Hesabdan çıxış
     </button>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import "../Dashboard/table.css";
 const Table = ({ employees, handleEdit, handleDelete }) => {
   employees.forEach((employee, i) => {
     employee.id = i + 1;
@@ -16,14 +16,14 @@ const Table = ({ employees, handleEdit, handleDelete }) => {
       <table className="striped-table">
         <thead>
           <tr>
-            <th>No.</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Salary</th>
-            <th>Date</th>
+            <th>İD</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Mail</th>
+            <th>Maaş</th>
+            <th>Doğum tarixi</th>
             <th colSpan={2} className="text-center">
-              Actions
+              Fəaliyyətlər
             </th>
           </tr>
         </thead>
@@ -40,24 +40,24 @@ const Table = ({ employees, handleEdit, handleDelete }) => {
                 <td className="text-right">
                   <button
                     onClick={() => handleEdit(employee.id)}
-                    className="button muted-button"
+                    className="button muted-button success"
                   >
-                    Edit
+                    Yenilə
                   </button>
                 </td>
                 <td className="text-left">
-                  <button
+                  <button 
                     onClick={() => handleDelete(employee.id)}
-                    className="button muted-button"
+                    className="button muted-button danger"
                   >
-                    Delete
+                    Sil
                   </button>
                 </td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan={7}>No Employees</td>
+              <td style={{textAlign:'center'}} colSpan={7}>İşçi yoxdur!</td>
             </tr>
           )}
         </tbody>

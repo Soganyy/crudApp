@@ -14,8 +14,8 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
     if (!firstName || !lastName || !email || !salary || !date) {
       return Swal.fire({
         icon: 'error',
-        title: 'Error!',
-        text: 'All fields are required.',
+        title: 'Xəbərdarlıq!',
+        text: 'Bütün xanaları doldurmağınız tələb olunur!',
         showConfirmButton: true,
       });
     }
@@ -38,17 +38,17 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
     Swal.fire({
       icon: 'success',
       title: 'Added!',
-      text: `${firstName} ${lastName}'s data has been Added.`,
+      text: `${firstName} ${lastName}'-da işçi artıq əlavə edilib`,
       showConfirmButton: false,
-      timer: 1500,
+      timer: 2500,
     });
   };
 
   return (
     <div className="small-container">
       <form onSubmit={handleAdd}>
-        <h1>Add Employee</h1>
-        <label htmlFor="firstName">First Name</label>
+        <h1>İşçi əlavə et</h1>
+        <label htmlFor="firstName">Ad</label>
         <input
           id="firstName"
           type="text"
@@ -56,7 +56,7 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
           value={firstName}
           onChange={e => setFirstName(e.target.value)}
         />
-        <label htmlFor="lastName">Last Name</label>
+        <label htmlFor="lastName">Soyad</label>
         <input
           id="lastName"
           type="text"
@@ -72,7 +72,7 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
-        <label htmlFor="salary">Salary ($)</label>
+        <label htmlFor="salary">Maaş ($)</label>
         <input
           id="salary"
           type="number"
@@ -80,7 +80,7 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
           value={salary}
           onChange={e => setSalary(e.target.value)}
         />
-        <label htmlFor="date">Date</label>
+        <label htmlFor="date">Doğum tarixi</label>
         <input
           id="date"
           type="date"

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
+import '../Dashboard/table.css'
 
 const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
   const id = selectedEmployee.id;
@@ -16,9 +17,9 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
     if (!firstName || !lastName || !email || !salary || !date) {
       return Swal.fire({
         icon: 'error',
-        title: 'Error!',
-        text: 'All fields are required.',
-        showConfirmButton: true,
+        title: 'Xəbərdarləq!',
+        text: 'Bütün dataları doldurmağınız tələb olunur',
+        showConfirmButton: false,
       });
     }
 
@@ -44,18 +45,18 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
 
     Swal.fire({
       icon: 'success',
-      title: 'Updated!',
-      text: `${employee.firstName} ${employee.lastName}'s data has been updated.`,
-      showConfirmButton: false,
-      timer: 1500,
+      title: 'Yeniləndi!',
+      text: `${employee.firstName} ${employee.lastName}-da işçinin məlumatları  yeniləndi!.`,
+      showConfirmButton: true,
+      timer: 2500,
     });
   };
 
   return (
     <div className="small-container">
       <form onSubmit={handleUpdate}>
-        <h1>Edit Employee</h1>
-        <label htmlFor="firstName">First Name</label>
+        <h1 style={{textAlign:"center"}}>Yenilə</h1>
+        <label htmlFor="firstName">Ad</label>
         <input
           id="firstName"
           type="text"
@@ -63,7 +64,7 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
           value={firstName}
           onChange={e => setFirstName(e.target.value)}
         />
-        <label htmlFor="lastName">Last Name</label>
+        <label htmlFor="lastName">Soyad</label>
         <input
           id="lastName"
           type="text"
@@ -79,7 +80,7 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
-        <label htmlFor="salary">Salary ($)</label>
+        <label htmlFor="salary">Maaş ($)</label>
         <input
           id="salary"
           type="number"
@@ -87,7 +88,7 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
           value={salary}
           onChange={e => setSalary(e.target.value)}
         />
-        <label htmlFor="date">Date</label>
+        <label htmlFor="date">Tarix</label>
         <input
           id="date"
           type="date"
@@ -96,12 +97,12 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
           onChange={e => setDate(e.target.value)}
         />
         <div style={{ marginTop: '30px' }}>
-          <input type="submit" value="Update" />
+          <input type="submit" value="Yenilə" className="muted-button success" />
           <input
             style={{ marginLeft: '12px' }}
-            className="muted-button"
+            className="muted-button primary"
             type="button"
-            value="Cancel"
+            value="İmtina et"
             onClick={() => setIsEditing(false)}
           />
         </div>

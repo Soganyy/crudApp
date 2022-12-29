@@ -12,7 +12,7 @@ const App = () => {
 
   return (
     <>
-      {isAuthenticated ? (
+      {isAuthenticated ? (//Əgər istifadəçi qeydiyyatdan keçibsə onda bu sehifelere daxil olma selahiyyetine sahibdir.
         <Dashboard setIsAuthenticated={setIsAuthenticated} />
       ) : (
         <Login setIsAuthenticated={setIsAuthenticated} />

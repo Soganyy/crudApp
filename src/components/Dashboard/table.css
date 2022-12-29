@@ -1,0 +1,12 @@
+.success:hover{
+background-color: yellowgreen;
+color:black;
+}
+.danger:hover{
+    background-color: red;
+    color:white
+}
+.primary:hover{
+    background-color: blue;
+    color:white;
+}
